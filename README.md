@@ -50,11 +50,11 @@ _Complete demographic information can be found in_ `Descriptive_Statistics.ipynb
 ___
 ## Ranks
 
-We asked people, _"Compared to before the onset of the coronavirus crisis, how important are the following musical behaviors and other activities to you?"_
+We asked people, _**"Compared to before the onset of the coronavirus crisis, how important are the following musical behaviors and other activities to you?"**_
 
 Based on their responses, we were able to rank the importance of different music-related behaviors and other activities. The image below shows which activities were the most important to people during the pandemic, as well as the functions music listening played in their lives.
 
-We can see that the most important **activities** included calling people, cleaning, cooking, and engaging with media (reading/watching news, movies or television, and listening to music). People changed the reasons they **listened to music** during lockdown because it is enjoyable, puts them in a good mood or energizes them, helps them to relax or reduces their stress, and helps support them in a bad mood.
+We can see that the most important _activities_ included calling people, cleaning, cooking, and engaging with media (reading/watching news, movies or television, and listening to music). People changed the reasons they _listened to music_ during lockdown because it is enjoyable, puts them in a good mood or energizes them, helps them to relax or reduces their stress, and helps support them in a bad mood.
 
 The importance of activities and music listening behaviors is largely similar across the six countries, but you can find some differences at the color-coded dots. 
 
@@ -89,15 +89,16 @@ We found that:
   -  **Work Situations due to the Pandemic** explained roughly 10% of the variablity in changing _Positive Emotions_, but about 5% of people's changing _Negative Emotions_
   -  **Living Situations during the Pandemic** explained roughly 5% of the variablity in changing _Positive Emotions_, and < 5% of people's changing _Negative Emotions_
 
-_Regression script:_ `Predicting_Negative_Positive_Emotions.ipynb`.
+_Complete regression information is in_ `Predicting_Negative_Positive_Emotions.ipynb`.
 
 #### Evaluation of individual differences
 
 Finally, we looked into the differences of how people engage with music when they are experiencing large and small changes in their emotions during the pandemic. The following table describes the most important finding:
   > People who reported high amounts of changing _Negative Emotions_ used music listening and making music to reduce negative affect and to provide a sense of comfort and support. 
+
   > People whose _Positive Emotions_ changed significantly during the lockdown reported making music as a form of social interaction and way to cope during the crisis.
 
-Latent Variable | Changes in Negative Emotions | Changes in Negative Emotions | Changes in Positive Emotions  | Changes in Positive Emotions 
+ . | Changes in Negative Emotions | Changes in Negative Emotions | Changes in Positive Emotions  | Changes in Positive Emotions 
 | :-------------: | :-------------: | :-------------: | :-------------: | :-------------:
 . | _Music Listening_ | _Making Music_ | _Music Listening_ | _Making Music_
 **Coping** |  |  |  | 
@@ -129,6 +130,17 @@ _Music making script:_ `Music_Making_Individual_Differences.ipynb`.
 
 ___
 ## Coping
+
+During the pandemic, people are less able to rely on some methods of coping, like ones that may be expensive (like therapy) or unavailable (like socializing inside). We used a machine learning approach to investigate how people are using music to cope with the stress of the coronavirus crisis.
+
+We defined music-related coping as listening to or making music in order to:
+  > Feel connected to others
+
+  > Serve as a replacement for social interaction
+
+  > Cope emotionally with the present situation
+
+Two LGBM regression analyses were conducted: one about _**music listening**_ and the other about _**making music**_. The results are summarized in the SHAP value plots below.
 
 ![image](/images/shap_plot.png)
 **Top 20 features predicting socio-emotional coping via (A) music listening and (B) making music. Data points represent SHAP values for every person on each of the top 20 most predictive features.**
