@@ -77,8 +77,9 @@ _Regression script:_ `Predicting_Negative_Positive_Emotions.ipynb`.
 
 **Changes in Negative and Positive Emotions During the Coronavirus Crisis**
 
-Variable | Changes in Negative Emotions /nMusic Listening | Changes in Negative Emotions /nMaking Music | Changes in Positive Emotions \nMusic Listening | Changes in Positive Emotions \nMaking Music
+Latent Variable | Changes in Negative Emotions | Changes in Negative Emotions | Changes in Positive Emotions  | Changes in Positive Emotions 
 | :-------------: | :-------------: | :-------------: | :-------------: | :-------------:
+**  ** | _Music Listening_ | _Making Music_ | _Music Listening_ | _Making Music_
 **Coping** |  |  |  | 
 Feel connected to others | 0.69 | 0.62 | 0.93 | 1.38
 Cope emotionally | 0.93 | 0.91 | 0.33 | 1.01
