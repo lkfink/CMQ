@@ -78,13 +78,13 @@ _Regression script:_ `Predicting_Negative_Positive_Emotions.ipynb`.
 **_Change in Negative and Positive Emotions
 During the Coronavirus Crisis**_
 
- | Negative--Music Listening | Negative--Making Music | Positive--Music Listening | Positive--Making Music
+ | Negative Music Listening | Negative Making Music | Positive Music Listening | Positive Making Music
 | :-------------: | :-------------: | :-------------: | :-------------: | :-------------:
-Coping | | | |
+Coping | 1 | 2 | 3 | 4
 Feel connected to others | 0.69 | 0.62 | 0.93 | 1.38
 Cope emotionally | 0.93 | 0.91 | 0.33 | 1.01
 Serve as social interaction | 0.77 | 0.78 | 0.93 | 1.40
-**Functions** | | | | 
+Functions | 1 | 2 | 3 | 4
 Top 6 functions with largest mean difference | Helps distract (0.90) | Feel less lonely (0.94) | Provides a spiritual experience (0.93) | Provides a spiritual experience (1.23)
  | Reduces stress (0.85) | Provides comfort (0.92) | Provides a spiritual experience (0.88) | Helps identify with the artist (1.15)
  | Provides comfort (0.78) | Reduces stress (0.92) | Provides an aesthetic experience  (0.88) | Helps dwell on worries (1.15)
