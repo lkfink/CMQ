@@ -21,16 +21,33 @@ Beyond immediate health risks, the COVID-19 pandemic poses a variety of addition
 
 ### Takeaways
 
- > _**During the COVID-19 lockdown, people have turned to music for regulating their emotions.**_
- > _**People experiencing different degrees of emotional changes showed different patterns of musical engagement.**_
- > _**Music listening and music making may provide different coping potentials.**_
- > _**Coronamusic played a key role in socio-emotional coping.**_
+ > **During the COVID-19 lockdown, people have turned to music for regulating their emotions.**
+
+ > **People experiencing different degrees of emotional changes showed different patterns of musical engagement.**
+
+ > **Music listening and music making may provide different coping potentials.**
+
+ > **Coronamusic played a key role in socio-emotional coping.**
 
 ___
 ## Participants
 
+We surveyed 5113 participants with representative samples (in terms of gender, age, and education) in 6 countries on 3 continents.
+
+Country | Number of Participants
+:-------------: | :-------------:
+France | 983
+Germany | 872
+India | 891
+Italy | 892
+UK | 621
+USA | 854
+
 ___
 ## Ranks
+
+![image](/images/rank_plot.png)
+_A: Lockdown activities and B: functions of listening to music ranked by mean change in importance of each item, within country._
 
 ___
 ## Individual
@@ -40,21 +57,14 @@ ___
   2.  Regression
   3.  Evaluation of differences
 
-Increasing | Decreasing
-:-------------: | :-------------:
-Certificates | Content Pages
-Non-graded Assessments |  
-Teacher Comments |  
-Interactive Pages |  
-
 ___
 ## Coping
 
-![image](/images/rank_plot.png)
-_Rank plot_
+![image](/images/shap_plot.png)
+_Top 20 features predicting socio-emotional coping via (A) music listening and (B) making music. Data points represent SHAP values for every person on each of the top 20 most predictive features._
 
 ___
 ## Contact
 Feel free to reach out to co-first authors Dr. Lauren Fink and Dr. Lindsay Warrenburg:
-- Lauren Fink: <a href="https://www.lindsaywarrenburg.com/" target="_blank">`https://www.lindsaywarrenburg.com/`</a>
+- Lauren Fink: <a href="https://lkfink.github.io/" target="_blank">`https://lkfink.github.io/`</a>
 - Lindsay Warrenburg: <a href="https://www.lindsaywarrenburg.com/" target="_blank">`https://www.lindsaywarrenburg.com/`</a>
