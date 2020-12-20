@@ -31,7 +31,7 @@ Beyond immediate health risks, the COVID-19 pandemic poses a variety of addition
 
  4. **Coronamusic played a key role in socio-emotional coping.**
 
-[Back to Table of Contents](#table)
+[Back to Table of Contents](#table of contents)
 ___
 ## Participants
 
