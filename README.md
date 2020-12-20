@@ -84,13 +84,13 @@ Variable | Negative Music Listening | Negative Making Music | Positive Music Lis
 Feel connected to others | 0.69 | 0.62 | 0.93 | 1.38
 Cope emotionally | 0.93 | 0.91 | 0.33 | 1.01
 Serve as social interaction | 0.77 | 0.78 | 0.93 | 1.40
-**Functions** |  |  |  | 
-Top 6 functions | Helps distract (0.90) | Feel less lonely (0.94) | Provides a spiritual experience (0.93) | Provides a spiritual experience (1.23)
-   | Reduces stress (0.85) | Provides comfort (0.92) | Provides a spiritual experience (0.88) | Helps identify with the artist (1.15)
-   | Provides comfort (0.78) | Reduces stress (0.92) | Provides an aesthetic experience  (0.88) | Helps dwell on worries (1.15)
-   | Supports in bad mood (0.78) | Lets daydream (0.82) | Feel connected to culture  (0.85) | Provides an aesthetic experience (1.13)
-   | Feel less lonely (0.77) | Vent negative emotions (0.80) | Helps identify with the artist  (0.84) | Gives new perspectives (1.09)
-   | Vent negative emotions (0.75) | Helps distract (0.79) |Feel like sharing one's experience  (0.82) | Feel like part of a bigger group (1.09)
+**Functions (Top 6)** |  |  |  | 
+_1._ | Helps distract (0.90) | Feel less lonely (0.94) | Provides a spiritual experience (0.93) | Provides a spiritual experience (1.23)
+_2._ | Reduces stress (0.85) | Provides comfort (0.92) | Provides a spiritual experience (0.88) | Helps identify with the artist (1.15)
+_3._ | Provides comfort (0.78) | Reduces stress (0.92) | Provides an aesthetic experience  (0.88) | Helps dwell on worries (1.15)
+_4._ | Supports in bad mood (0.78) | Lets daydream (0.82) | Feel connected to culture  (0.85) | Provides an aesthetic experience (1.13)
+_5._ | Feel less lonely (0.77) | Vent negative emotions (0.80) | Helps identify with the artist  (0.84) | Gives new perspectives (1.09)
+_6._ | Vent negative emotions (0.75) | Helps distract (0.79) |Feel like sharing one's experience  (0.82) | Feel like part of a bigger group (1.09)
 
 
 
