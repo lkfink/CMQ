@@ -75,10 +75,9 @@ _Regression script:_ `Predicting_Negative_Positive_Emotions.ipynb`.
 
 #### Evaluation of individual differences
 
-**Change in Negative and Positive Emotions
-During the Coronavirus Crisis**
+**Changes in Negative and Positive Emotions During the Coronavirus Crisis**
 
-Variable | Negative Music Listening | Negative Making Music | Positive Music Listening | Positive Making Music
+Variable | Changes in Negative Emotions \nMusic Listening | Changes in Negative Emotions \nMaking Music | Changes in Positive Emotions \nMusic Listening | Changes in Positive Emotions \nMaking Music
 | :-------------: | :-------------: | :-------------: | :-------------: | :-------------:
 **Coping** |  |  |  | 
 Feel connected to others | 0.69 | 0.62 | 0.93 | 1.38
@@ -91,7 +90,16 @@ _3._ | Provides comfort (0.78) | Reduces stress (0.92) | Provides an aesthetic e
 _4._ | Supports in bad mood (0.78) | Lets daydream (0.82) | Feel connected to culture  (0.85) | Provides an aesthetic experience (1.13)
 _5._ | Feel less lonely (0.77) | Vent negative emotions (0.80) | Helps identify with the artist  (0.84) | Gives new perspectives (1.09)
 _6._ | Vent negative emotions (0.75) | Helps distract (0.79) |Feel like sharing one's experience  (0.82) | Feel like part of a bigger group (1.09)
+**Situations (Top 3)** |  |  |  | 
+_1._ | While doing other activities (0.71) | Dance with others on the internet (0.85) | With others (0.75) | Play together (0.98)
+_2._ | While alone (0.68) | Dance alone (0.84) | In the evening (0.69) | Perform for others (0.97)
+_3._ | While doing housework (0.63) | Dance with others (0.79) | While traveling (0.65) | Sing with others on the internet (0.94)
+**Music Selection** |  |  |  | 
+Diverse music | 0.42 | 0.52 | 0.30 | 0.44
+Coronamusic interest | 0.88 | 0.95 | 1.05 | 1.41
+Nostalgic music | 0.58 | 0.55 | 0.42 | 0.53
 
+**Overview of individual differences in music-related coping, functions, situations, and selection for two latent variables that describe changes in positive and negative emotion during the coronavirus crisis. All values represent mean differences between the top vs. bottom 25% of scorers on each factor (7-point scales). Positive values indicate that the mean score was larger for high scorers than for low scorers.**
 
 
 
