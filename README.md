@@ -80,7 +80,7 @@ During the Coronavirus Crisis**_
 
  | Negative--Music Listening | Negative--Making Music | Positive--Music Listening | Positive--Making Music
 | :-------------: | :-------------: | :-------------: | :-------------: | :-------------:
-**Coping** | | | |
+Coping | | | |
 Feel connected to others | 0.69 | 0.62 | 0.93 | 1.38
 Cope emotionally | 0.93 | 0.91 | 0.33 | 1.01
 Serve as social interaction | 0.77 | 0.78 | 0.93 | 1.40
