@@ -34,6 +34,8 @@ ___
 
 We surveyed 5113 participants with representative samples (in terms of gender, age, and education) in 6 countries on 3 continents.
 
+The survey took place during the first lockdown of the COVID-19 pandemic, from mid-April through mid-May, 2020.
+
 Country | Number of Participants
 :-------------: | :-------------:
 France | 983
@@ -48,38 +50,56 @@ _Complete demographic information can be found in_ `Descriptive_Statistics.ipynb
 ___
 ## Ranks
 
+We asked people, _"Compared to before the onset of the coronavirus crisis, how important are the following musical behaviors and other activities to you?"_
+
+Based on their responses, we were able to rank the importance of different music-related behaviors and other activities. The image below shows which activities were the most important to people during the pandemic, as well as the functions music listening played in their lives.
+
+We can see that the most important **activities** included calling people, cleaning, cooking, and engaging with media (reading/watching news, movies or television, and listening to music). People changed the reasons they **listened to music** during lockdown because it is enjoyable, puts them in a good mood or energizes them, helps them to relax or reduces their stress, and helps support them in a bad mood.
+
+The importance of activities and music listening behaviors is largely similar across the six countries, but you can find some differences at the color-coded dots. 
+
 ![image](/images/rank_plot.png)
 **A: Lockdown activities and B: functions of listening to music ranked by mean change in importance of each item, within country.**
 
-_Ranking script:_ `Ranks.ipynb`.
+_More information about this ranking process is in_ `Ranks.ipynb`.
 
 ___
 ## Individual
 
 ### Overview
+
+In order to explore whether musical behaviors differed across people with different personality or demographic traits, we used a three step process. 
+
   1.  Factor analysis
   2.  Regression
   3.  Evaluation of individual differences
 
 #### Factor Analysis
 
-Text
+An exploratory factor analysis of demographic and personality variables revealed six latent factors, which were interpreted as changes in _Negative Emotion_ during the pandemic, changes in _Positive Emotion_ during the pandemic, _Age_, _Living Situation_ (alone or with others), _Employment_, and _City Type_ (urban, suburban, rural).
 
-_Factor analysis script:_ `Factor_Analysis.ipynb`.
+_Details of the factor analysis can be found in_ `Factor_Analysis.ipynb`.
 
 #### Regression
 
-Text
+Next, we wanted to see if coronavirus-related variables could predict changes in people's _Positive_ and _Negative Emotions_, where the factor scores from above were used as the dependent variables. 
+
+We found that:
+  -  **Contact with the COVID-19 virus** explained > 20% of the variability in changing _Positive Emotions_, but < 10% of people's changing _Negative Emotions_
+  -  **Work Situations due to the Pandemic** explained roughly 10% of the variablity in changing _Positive Emotions_, but about 5% of people's changing _Negative Emotions_
+  -  **Living Situations during the Pandemic** explained roughly 5% of the variablity in changing _Positive Emotions_, and < 5% of people's changing _Negative Emotions_
 
 _Regression script:_ `Predicting_Negative_Positive_Emotions.ipynb`.
 
 #### Evaluation of individual differences
 
-**Changes in Negative and Positive Emotions During the Coronavirus Crisis**
+Finally, we looked into the differences of how people engage with music when they are experiencing large and small changes in their emotions during the pandemic. The following table describes the most important finding:
+  > People who reported high amounts of changing _Negative Emotions_ used music listening and making music to reduce negative affect and to provide a sense of comfort and support. 
+  > People whose _Positive Emotions_ changed significantly during the lockdown reported making music as a form of social interaction and way to cope during the crisis.
 
 Latent Variable | Changes in Negative Emotions | Changes in Negative Emotions | Changes in Positive Emotions  | Changes in Positive Emotions 
 | :-------------: | :-------------: | :-------------: | :-------------: | :-------------:
-**  ** | _Music Listening_ | _Making Music_ | _Music Listening_ | _Making Music_
+. | _Music Listening_ | _Making Music_ | _Music Listening_ | _Making Music_
 **Coping** |  |  |  | 
 Feel connected to others | 0.69 | 0.62 | 0.93 | 1.38
 Cope emotionally | 0.93 | 0.91 | 0.33 | 1.01
@@ -101,11 +121,6 @@ Coronamusic interest | 0.88 | 0.95 | 1.05 | 1.41
 Nostalgic music | 0.58 | 0.55 | 0.42 | 0.53
 
 **Overview of individual differences in music-related coping, functions, situations, and selection for two latent variables that describe changes in positive and negative emotion during the coronavirus crisis. All values represent mean differences between the top vs. bottom 25% of scorers on each factor (7-point scales). Positive values indicate that the mean score was larger for high scorers than for low scorers.**
-
-
-
-
-
 
 
 _Music listening script:_ `Music_Listening_Individual_Differences.ipynb`.
