@@ -6,7 +6,7 @@ Viral Tunes: Changes in Musical Behaviours Predict Socio-Emotional Coping During
 If using anything from this repository, please cite the paper.
 
 ___
-## Table of Contents
+## Overview
 
 - [Project Description](#description)
 - [Participants](#participants)
@@ -18,7 +18,6 @@ ___
 ___
 ## Description
 
-### Summary
 Beyond immediate health risks, the COVID-19 pandemic poses a variety of additional stressors, which may require expensive or unavailable strategies during a pandemic (e.g., therapy, socializing). In this study, we ask whether music might serve as a tool for socio-emotional coping. We surveyed the music listening and making behavior of over 5000 people, with representative samples from 6 countries (3 continents). We find that people with increased positive emotions used music as a proxy for social interaction, whereas people with increased negative emotions used music as a form of emotional regulation. Using a machine learning approach, we tested the importance of demographic/personality traits and various musical behaviors in predicting socio-emotional coping. Our models explain over 50% of the variance in participants’ self-reported use of music to cope and indicate the importance of individually tailored adaptive behaviors (rather than a one-size-fits-all) approach to using music to meet socio-emotional needs. 
 
 ### Main Takeaways
@@ -31,7 +30,7 @@ Beyond immediate health risks, the COVID-19 pandemic poses a variety of addition
 
  4. **Coronamusic played a key role in socio-emotional coping.**
 
-[Back to Table of Contents](#tableofcontents)
+[Back to Overview](#overview)
 ___
 ## Participants
 
@@ -50,7 +49,7 @@ USA | 854
 
 _Complete demographic information can be found in_ `Descriptive_Statistics.ipynb`.
 
-[Back to Table of Contents](#table)
+[Back to Overview](#overview)
 ___
 ## Ranks
 
@@ -67,7 +66,7 @@ The importance of activities and music listening behaviors is largely similar ac
 
 _More information about this ranking process is in_ `Ranks.ipynb`.
 
-[Back to Table of Contents](#table)
+[Back to Overview](#overview)
 
 ___
 ## Individual
@@ -134,7 +133,7 @@ _Music listening script:_ `Music_Listening_Individual_Differences.ipynb`.
 
 _Music making script:_ `Music_Making_Individual_Differences.ipynb`.
 
-[Back to Table of Contents](#table)
+[Back to Overview](#overview)
 ___
 ## Coping
 
@@ -156,7 +155,7 @@ _Music listening script:_ `Music_Listening_LGBM.ipynb`.
 
 _Music making script:_ `Music_Making_LGBM.ipynb`.
 
-[Back to Table of Contents](#table)
+[Back to Overview](#overview)
 ___
 ## Contact
 Feel free to reach out to co-first authors Dr. Lauren Fink and Dr. Lindsay Warrenburg:
