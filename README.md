@@ -5,7 +5,8 @@ Viral Tunes: Changes in Musical Behaviours Predict Socio-Emotional Coping During
 
 If using anything from this repository, please cite the paper.
 
-## Table of Contents
+___
+## Table
 
 - [Project Description](#description)
 - [Participants](#participants)
@@ -16,6 +17,8 @@ If using anything from this repository, please cite the paper.
 
 ___
 ## Description
+
+[Back to Table of Contents](#table)
 ### Summary
 Beyond immediate health risks, the COVID-19 pandemic poses a variety of additional stressors, which may require expensive or unavailable strategies during a pandemic (e.g., therapy, socializing). In this study, we ask whether music might serve as a tool for socio-emotional coping. We surveyed the music listening and making behavior of over 5000 people, with representative samples from 6 countries (3 continents). We find that people with increased positive emotions used music as a proxy for social interaction, whereas people with increased negative emotions used music as a form of emotional regulation. Using a machine learning approach, we tested the importance of demographic/personality traits and various musical behaviors in predicting socio-emotional coping. Our models explain over 50% of the variance in participants’ self-reported use of music to cope and indicate the importance of individually tailored adaptive behaviors (rather than a one-size-fits-all) approach to using music to meet socio-emotional needs. 
 
