@@ -49,7 +49,7 @@ ___
 ## Ranks
 
 ![image](/images/rank_plot.png)
-_A: Lockdown activities and B: functions of listening to music ranked by mean change in importance of each item, within country._
+**A: Lockdown activities and B: functions of listening to music ranked by mean change in importance of each item, within country.**
 
 _Ranking script:_ `Ranks.ipynb`.
 
@@ -62,16 +62,19 @@ ___
   3.  Evaluation of individual differences
 
 **Factor Analysis**
+
 Text
 
 _Factor analysis script:_ `Factor_Analysis.ipynb`.
 
 **Regression**
+
 Text
 
 _Regression script:_ `Predicting_Negative_Positive_Emotions.ipynb`.
 
 **Evaluation of individual differences**
+
 Text
 
 _Music listening script:_ `Music_Listening_Individual_Differences.ipynb`.
@@ -81,9 +84,10 @@ ___
 ## Coping
 
 ![image](/images/shap_plot.png)
-_Top 20 features predicting socio-emotional coping via (A) music listening and (B) making music. Data points represent SHAP values for every person on each of the top 20 most predictive features._
+**Top 20 features predicting socio-emotional coping via (A) music listening and (B) making music. Data points represent SHAP values for every person on each of the top 20 most predictive features.**
 
 _Music listening script:_ `Music_Listening_LGBM.ipynb`.
+
 _Music making script:_ `Music_Making_LGBM.ipynb`.
 
 ___
