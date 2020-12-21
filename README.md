@@ -97,10 +97,10 @@ _Complete regression information is in_ `Predicting_Negative_Positive_Emotions.i
 
 #### Evaluation of individual differences
 
-Finally, we looked into the differences in how people engage with music when they are experiencing large vs. small changes in their emotions during the pandemic. The following table describes the most important findings:
-  > People who reported high amounts of changing _Negative Emotions_ used music listening and making music to reduce negative affect and to provide a sense of comfort and support. 
+Finally, we looked into the differences in how people engage with music when they are experiencing increased/decreased Positive and Negative emotions during the pandemic. The following table describes the most important findings:
+  > People who reported increased _Negative Emotions_ used music listening and making music to reduce negative affect and to provide a sense of comfort and support. 
 
-  > People whose _Positive Emotions_ changed significantly during the lockdown reported making music as a form of social interaction and way to cope during the crisis.
+  > People whose _Positive Emotions_ increased during the lockdown reported making music as a form of social interaction and way to cope during the crisis.
 
  . | Changes in Negative Emotions | Changes in Negative Emotions | Changes in Positive Emotions  | Changes in Positive Emotions 
 | :-------------: | :-------------: | :-------------: | :-------------: | :-------------:
