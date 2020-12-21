@@ -50,15 +50,15 @@ _Complete demographic information can be found in_ `Descriptive_Statistics.ipynb
 
 [Back to Overview](#overview)
 ___
-## Ranks
+## Ranked changes in lockdown behaviors across people
 
-We asked people, _**"Compared to before the onset of the coronavirus crisis, how important are the following musical behaviors and other activities to you?"**_
+We asked people, _**"Compared to before the onset of the coronavirus crisis, how important are the following 1) leisure activities and 2) functions of music listening to you?"**_
 
-Based on their responses, we were able to rank the importance of different music-related behaviors and other activities. The image below shows which activities were the most important to people during the pandemic, as well as the functions music listening played in their lives.
+We ranked the importance of all surveyed items across individuals, within each country. The image below shows 1) which activities became most important to people during lockdown, and 2) which functions of music listening became more important. 
 
-We can see that the most important _activities_ included calling people, cleaning, cooking, and engaging with media (reading/watching news, movies or television, and listening to music). People changed the reasons they _listened to music_ during lockdown because it is enjoyable, puts them in a good mood or energizes them, helps them to relax or reduces their stress, and helps support them in a bad mood.
+We can see that the most important _activities_ included calling people, cleaning, cooking, and engaging with media (reading/watching news, movies or television, and listening to music). The most important functions people felt _music listening_ should serve were that it is enjoyable, puts them in a good mood or energizes them, helps them to relax or reduces their stress, and helps support them in a bad mood.
 
-The importance of activities and music listening behaviors is largely similar across the six countries, but you can find some differences at the color-coded dots. 
+The importance of activities and music listening behaviors is largely similar across the six countries, but you can see some differences by looking at the spread of the color-coded dots. 
 
 ![image](/images/rank_plot.png)
 **A: Lockdown activities and B: functions of listening to music ranked by mean change in importance of each item, within country.**
@@ -68,7 +68,7 @@ _More information about this ranking process is in_ `Ranks.ipynb`.
 [Back to Overview](#overview)
 
 ___
-## Individual
+## Individual differences in lockdown behavior
 
 ### Overview
 
@@ -97,7 +97,7 @@ _Complete regression information is in_ `Predicting_Negative_Positive_Emotions.i
 
 #### Evaluation of individual differences
 
-Finally, we looked into the differences of how people engage with music when they are experiencing large and small changes in their emotions during the pandemic. The following table describes the most important finding:
+Finally, we looked into the differences in how people engage with music when they are experiencing large vs. small changes in their emotions during the pandemic. The following table describes the most important findings:
   > People who reported high amounts of changing _Negative Emotions_ used music listening and making music to reduce negative affect and to provide a sense of comfort and support. 
 
   > People whose _Positive Emotions_ changed significantly during the lockdown reported making music as a form of social interaction and way to cope during the crisis.
@@ -134,9 +134,9 @@ _Music making script:_ `Music_Making_Individual_Differences.ipynb`.
 
 [Back to Overview](#overview)
 ___
-## Coping
+## Music as a tool for socio-emotional coping
 
-During the pandemic, people are less able to rely on some methods of coping, like ones that may be expensive (like therapy) or unavailable (like socializing inside). We used a machine learning approach to investigate how people are using music to cope with the stress of the coronavirus crisis.
+During the pandemic, people are less able to rely on some methods of coping, like ones that may be expensive (therapy) or unavailable (socializing inside). We used a machine learning approach to investigate how people are using music to cope with the stress of the coronavirus crisis.
 
 We defined music-related coping as listening to or making music in order to:
   > Feel connected to others
