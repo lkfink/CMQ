@@ -97,7 +97,7 @@ _Complete regression information is in_ `Predicting_Negative_Positive_Emotions.i
 
 #### Evaluation of individual differences
 
-Finally, we looked into the differences of how people engage with music when they are experiencing large and small changes in their emotions during the pandemic. The following table describes the most important finding:
+Finally, we looked into the differences in how people engage with music when they are experiencing large vs. small changes in their emotions during the pandemic. The following table describes the most important findings:
   > People who reported high amounts of changing _Negative Emotions_ used music listening and making music to reduce negative affect and to provide a sense of comfort and support. 
 
   > People whose _Positive Emotions_ changed significantly during the lockdown reported making music as a form of social interaction and way to cope during the crisis.
@@ -136,7 +136,7 @@ _Music making script:_ `Music_Making_Individual_Differences.ipynb`.
 ___
 ## Music as a tool for socio-emotional coping
 
-During the pandemic, people are less able to rely on some methods of coping, like ones that may be expensive (like therapy) or unavailable (like socializing inside). We used a machine learning approach to investigate how people are using music to cope with the stress of the coronavirus crisis.
+During the pandemic, people are less able to rely on some methods of coping, like ones that may be expensive (therapy) or unavailable (socializing inside). We used a machine learning approach to investigate how people are using music to cope with the stress of the coronavirus crisis.
 
 We defined music-related coping as listening to or making music in order to:
   > Feel connected to others
