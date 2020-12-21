@@ -9,7 +9,7 @@ ___
 
 - [Project Description](#description)
 - [Participants](#participants)
-- [Musical Behaviours: Ranked Importance](#Ranked changes in lockdown behaviors across people)
+- [Musical Behaviours: Ranked Importance](#ranks)
 - [Musical Behaviours: Individual Differences](#individual)
 - [Socio-emotional Coping: LGBM Modeling](#coping)
 - [Contact](#contact)
