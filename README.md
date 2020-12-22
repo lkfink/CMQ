@@ -74,26 +74,30 @@ ___
 
 In order to explore whether musical behaviors differed across people with different personality or demographic traits, we used a three step process. 
 
-  1.  Factor analysis
-  2.  Regression
+  1.  Regression
+  2.  Factor analysis
   3.  Evaluation of individual differences
-
-#### Factor Analysis
-
-An exploratory factor analysis of demographic and personality variables revealed six latent factors, which were interpreted as changes in _Negative Emotion_ during the pandemic, changes in _Positive Emotion_ during the pandemic, _Age_, _Living Situation_ (alone or with others), _Employment_, and _City Type_ (urban, suburban, rural).
-
-_Details of the factor analysis can be found in_ `Factor_Analysis.ipynb`.
 
 #### Regression
 
-Next, we wanted to see if coronavirus-related variables could predict changes in people's _Positive_ and _Negative Emotions_, where the factor scores from above were used as the dependent variables. 
+First, we wanted to see if coronavirus-related variables could predict changes in people's _Positive Emotions_ (positive valence, energetic arousal, general health/wellbeing) and _Negative Emotions_ (depression, stress, anxiety, loneliness, negative valence).
+
+The coronavirus-related variables were **contact with the COVID-19 virus**, **work situations due to the pandemic**, and **living situations during the pandemic**.
 
 We found that:
-  -  **Contact with the COVID-19 virus** explained > 20% of the variability in changing _Positive Emotions_, but < 10% of people's changing _Negative Emotions_
-  -  **Work Situations due to the Pandemic** explained roughly 10% of the variablity in changing _Positive Emotions_, but about 5% of people's changing _Negative Emotions_
-  -  **Living Situations during the Pandemic** explained roughly 5% of the variablity in changing _Positive Emotions_, and < 5% of people's changing _Negative Emotions_
+  - These coronavirus-related variables affect changes in a person's positive emotions more than their negative emotions
+  - A person's contact with the COVID-19 virus affects changes in emotion more than a person's living or work situation. 
+  - The variability in a person's changing emotions explained by pandemic-related factors is small -- this suggests the importance of other variables, as well.
 
 _Complete regression information is in_ `Predicting_Negative_Positive_Emotions.ipynb`.
+
+#### Factor Analysis
+
+Because of the low variability explained by coronavirus-related measures (contact with the COVID-19 virus and changes in living and work situation during the pandemic), an exploratory factor analysis was conducted on the demographic and personality variables, resulting in six latent variables.
+
+These factors were interpreted as changes in _Negative Emotion_ during the pandemic, changes in _Positive Emotion_ during the pandemic, _Age_, _Living Situation_ (alone or with others), _Employment_, and _City Type_ (urban, suburban, rural).
+
+_Details of the factor analysis can be found in_ `Factor_Analysis.ipynb`.
 
 #### Evaluation of individual differences
 
