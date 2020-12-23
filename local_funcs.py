@@ -71,7 +71,6 @@ def detect_outliers(df, n, features):
 
 
 
-
 #------------------------------------------------------------------------------#
 '''
 Clean up free responses
@@ -128,40 +127,210 @@ def melt_category(df, key):
 
 
 
+
+
+#------------------------------------------------------------------------------#
+#                       Ranking Functions
+#------------------------------------------------------------------------------#
+
+
 # ---------------------------------------------------------------------------- #
-# Convert 7pt ratings to change scores
-def to_change_score(df, cols, label):
+''' Function to rank items in category
+Input:
+ - df, category keyword (e.g. 'Activities_'), new column label, flag to rank based on mean change score or absolute value of change score
+Output:
+ - column of rankings, rank at which the mean switches from positive to negative (if any)
+'''
 
-    # Input:
-    # - dataframe
-    # - columns to convert
-    # - label for new column to add to the data frame (which will be label + '_changeScore')
+def rank_cols(data, keyword_str, colstring, abs_flag):
+    ml = [col for col in data.columns if col.startswith(keyword_str)]
+    mld = data[ml]
+    mld = mld.dropna()
+    mld = mld.reset_index(drop = True)
+    mld = mld - 4
 
-    # Output:
-    # - same df with columns converted to change scores and new column added.
-    for col in cols:
-#         df[col] = df[col].replace({99:np.nan}) # NOTE: 20201111 - don't think we use this function in anything for the paper but since we have added this recoding to preproc script, no longer need it here. 
-#         df[col] = df[col].replace({0:np.nan})
-        #df[col] = abs(df[col] - 4)
-        df[col] = df[col] - 4
-        newstr = label + '_changeScore'
-        df[newstr] = df[cols].sum(axis = 1, skipna=True, numeric_only=True)
+    # Display size of data frame and percent responses no change
+    print(mld.shape)
+    print('percent no change:', round( (mld.isin([0]).sum().sum() / (mld.shape[0]*mld.shape[1]))*100 , 4 ) )
 
-    # rearrange columns to be in alphabetical order
-    df = df.reindex(sorted(df.columns), axis=1)
+    # if user wants ranks from absolute values, rather than change scores with directionality
+    if abs_flag:
+        mld = abs(mld)
+    ranked = mld.mean().rank(ascending=False)
+    ranked = pd.DataFrame(ranked, columns=[colstring])
 
-    return df
+    means = mld.mean()
+
+    # check for means that are negative
+    if any(means < 0):
+        #print('Some means < 0')
+        changepoint = max(means[means<0]) # find value where we switch to negative
+        changeind = list(means).index(changepoint)
+        changerank = ranked[colstring][changeind]
+    else:
+        changerank = 99 # no change flag
+
+    return ranked, changerank
 
 
+
+# ---------------------------------------------------------------------------- #
+'''
+Function to return rankings to user
+Input:
+- df, category keyword (e.g. 'Activities_')
+Output:
+- rankings for each country
+'''
+
+def return_ranks(data, keyword):
+
+    print('All countries')
+    all_ranks_change, chgrank = rank_cols(data, keyword, 'All_Countries', 0)\
+
+    # loop through all countries
+    countries = data['Country_Country Name'].unique()
+    for i in countries:
+        print('\n',i)
+        newdata = data[data['Country_Country Name'] == i]
+        ranked_change = rank_cols(newdata, keyword, i, 0)[0]
+        all_ranks_change = all_ranks_change.join(ranked_change)
+
+    # drop all country rank (don't need)
+    all_ranks_change = all_ranks_change.drop(columns = ['All_Countries'], axis = 1)
+
+    # remove tag from index labels
+    all_ranks_change.index = all_ranks_change.index.str.split(keyword).str[1].str.lower()
+
+    return all_ranks_change, chgrank
+
+
+
+
+# ---------------------------------------------------------------------------- #
+''' Function to plot rankings
+Input:
+- df of ranks for each country in one category,
+- category keyword (e.g. 'Activities_'),
+- rank at which sign changes,
+- flag whether using abs value or not
+- figure file type to output (e.g. '.png')
+- resolution of figure in dpi (e.g. 300)
+- flag whether to save figure or not
+Output:
+- plot of ranks for each country, sorted by median rank across countries
+'''
+def plot_ranks(ranked_df, keyword, changerank, abs_flag, ftype, dpi, savefigure):
+
+    # Organize data for plotting
+    means = ranked_df.median(axis=1)
+    means.sort_values(ascending=True, inplace=True)
+    df = ranked_df
+    df['item'] = ranked_df.index
+    df = df.melt(id_vars='item')
+
+    # Plot
+    f,ax = plt.subplots(figsize=(11,means.shape[0]/2))
+    ax = sns.boxplot(x='value', y='item', data=df, order=means.index, color='white');
+    ax = sns.swarmplot(y=df['item'], x=df['value'], hue=df['variable'], order=means.index, size=6)
+
+    # Edit plot elements (want labels to be more meaningful for paper)
+    ax.set_yticks(np.arange(0, means.shape[0], step=1))
+    ylabs = means.index.tolist()
+    new_ylabs = []
+    if keyword == 'Activities_':
+        for string in ylabs:
+            alphlower = {k.lower(): v for k, v in local_dicts.activities_rename_dict.items()}
+            new_ylabs.append(alphlower[string])
+    elif keyword == 'Music Listening_Functions_':
+        for string in ylabs:
+            alphlower = {k.lower(): v for k, v in local_dicts.mus_lis_funcs_rename_dict.items()}
+            new_ylabs.append(alphlower[string])
+    elif keyword == 'Making Music_Functions_':
+        for string in ylabs:
+            alphlower = {k.lower(): v for k, v in local_dicts.mus_lis_funcs_rename_dict.items()}
+            new_ylabs.append(alphlower[string])
+    elif keyword == 'Music Listening_Situations_':
+        for string in ylabs:
+            alphlower = {k.lower(): v for k, v in local_dicts.mus_lis_situations_rename_dict.items()}
+            new_ylabs.append(alphlower[string])
+    elif keyword == 'Music Listening_Formats_':
+        for string in ylabs:
+            alphlower = {k.lower(): v for k, v in local_dicts.mus_list_formats_rename_dict.items()}
+            new_ylabs.append(alphlower[string])
+    elif keyword == 'Making Music_Situations_':
+        for string in ylabs:
+            alphlower = {k.lower(): v for k, v in local_dicts.mus_make_forms.items()}
+            new_ylabs.append(alphlower[string])
+    else:
+        for string in ylabs:
+            new_string = string.replace(" i ", " I ")
+            new_ylabs.append(new_string)
+
+    ax.set_yticklabels(new_ylabs, ha='right');
+    ax.set(ylabel=keyword.replace("_", " "), xlabel='Rank')#,title='Ranked change in importance, median-sorted');
+
+    plt.xticks(np.arange(1, means.shape[0], step=5))
+    ax.grid(False)
+    sns.despine(left=True, bottom=True)
+    ax.invert_xaxis()
+    if 0 < changerank < 99:
+        ax.axvline(x=changerank-.1, linestyle="dotted", color='0.5')
+    if changerank == 0:
+        ax.axvline(x=1, linestyle="dotted", color='0.5')
+    leg = ax.get_legend()
+    leg.set_title("Country")
+    if means.shape[0]/2.5 >= 10:
+        plt.legend(fontsize='medium', title='Country')
+    else:
+        plt.legend(fontsize='x-small', title='Country')
+
+    f.tight_layout()
+
+    # Create filename for plot
+    if abs_flag:
+        s =  '_ranked_abs'
+    else:
+        s = '_ranked'
+    savestr = 'Figures/' + keyword + s + ftype
+    #ax.get_legend().remove()
+
+    if savefigure:
+        f.savefig(savestr, dpi=dpi);
+
+    return f, ax
+
+
+
+# ---------------------------------------------------------------------------- #
+''' Function to print spearman rank correlations, across countries / ratings
+Input:
+- df of ranks for each country in one category
+Output:
+- table and visualization of correlations
+'''
+def print_rank_corr(df):
+    res = df.corr(method='spearman')
+
+    # Plot
+    cmap = sns.diverging_palette(220, 10, as_cmap=True)
+    ax = sns.heatmap(res, cmap=cmap,
+                square=True, linewidths=.5, cbar_kws={"shrink": .5}, annot=True, vmin=-1, vmax=1, center=0)
+
+    print('\nMean corr coef:', np.nanmean(res.values[np.triu_indices_from(res.values,1)]), '\n')
+    print(df.rcorr(method='spearman', upper='pval', padjust='fdr_bh', stars = False))
 
 
 
 
 #------------------------------------------------------------------------------#
-#                       Plotting Functions
+#                       Additional Plotting Functions
 #------------------------------------------------------------------------------#
-# function to map numeric categorical data back onto labels and plot sns countplot
-# Input: data frame, column of interest, x axis label to plot, title to plot, flag whether plot should be percent or count (1 if percent)
+'''
+function to map numeric categorical data back onto labels and plot sns countplot
+Input: data frame, column of interest, x axis label to plot, title to plot, flag whether plot should be percent or count (1 if percent)
+Output: figure with sns countplot for var of interest
+'''
 def map_and_plot(df, col, xlab, title, percent):
 
     if percent:
@@ -186,8 +355,10 @@ def map_and_plot(df, col, xlab, title, percent):
 
 
 #------------------------------------------------------------------------------#
-# function to map numeric categorical data back onto labels and plot sns countplot
-# Input: data frame, column of interest, x axis label to plot, title to plot, flag whether plot should be percent or count (1 if percent)
+'''function to map numeric categorical data back onto labels and plot sns countplot
+Input: data frame, column of interest, x axis label to plot, title to plot, flag whether plot should be percent or count (1 if percent)
+Output: figure with sns countplot for var of interest, by country
+'''
 def map_and_plot_byCountry(df, col, xlab, title, ptype, standard):
     # Specify ptype as:
     # - perc = percentage of col of interest for each country
@@ -368,8 +539,6 @@ def map_and_print(df, col, printstr):
     print('\n')
 
 
-
-
 # ---------------------------------------------------------------------------- #
 # View tab (Taken from Martin: https://stackoverflow.com/users/2575273/martin)
 def View(df):
@@ -386,197 +555,3 @@ def View(df):
     s += '</script>'
     return(HTML(s+css))
 files = os.listdir(os.curdir)
-
-
-# ---------------------------------------------------------------------------- #
-# Function to rank items in category
-# Input:
-# - df, category keyword (e.g. 'Activities_'), new column label, flag to rank based on mean change score or absolute value of change score
-# Output:
-# - column of rankings, rank at which the mean switches from positive to negative (if any)
-def rank_cols(data, keyword_str, colstring, abs_flag):
-    ml = [col for col in data.columns if col.startswith(keyword_str)]
-    mld = data[ml]
-    # NOTE - double check scales of variables inputting into function
-    # mld = mld.replace({99:np.nan, 0:4}) # replace never do this with 4 (no change) 
-    # ^ don't need this anymore because added to preproc script
-    mld = mld.dropna()
-    mld = mld.reset_index(drop = True)
-    mld = mld - 4
-
-    # Display size of data frame and percent responses no change
-    print(mld.shape)
-    print('percent no change:', mld.isin([0]).sum().sum() / (mld.shape[0]*mld.shape[1]))
-
-    # if user wants ranks from absolute values, rather than change scores with directionality
-    if abs_flag:
-        mld = abs(mld)
-    ranked = mld.mean().rank(ascending=False)
-    ranked = pd.DataFrame(ranked, columns=[colstring])
-
-    means = mld.mean()
-
-    # check for means that are negative
-    if any(means < 0):
-        print('Some means < 0')
-        changepoint = max(means[means<0]) # find value where we switch to negative
-        changeind = list(means).index(changepoint)
-        changerank = ranked[colstring][changeind]
-    else:
-        changerank = 99 # no change flag
-
-    return ranked, changerank
-
-
-
-# ---------------------------------------------------------------------------- #
-# Function to return rankings to user
-# Input:
-# - df, category keyword (e.g. 'Activities_')
-# Output:
-# - rankings for each country
-def return_ranks(data, keyword):
-
-    #all_ranks_abs = rank_cols(data, keyword, 'All_Countries', 1)
-    all_ranks_change, chgrank = rank_cols(data, keyword, 'All_Countries', 0)\
-
-    # find change point where across all countries things get negative
-
-    # loop through all countries
-    countries = data['Country_Country Name'].unique()
-    for i in countries:
-        print('\n',i)
-        newdata = data[data['Country_Country Name'] == i]
-        #ranked_abs = rank_cols(newdata, keyword, i, 1)[0]
-        ranked_change = rank_cols(newdata, keyword, i, 0)[0]
-        #all_ranks_abs = all_ranks_abs.join(ranked_abs)
-        all_ranks_change = all_ranks_change.join(ranked_change)
-
-    # drop all country rank (don't need)
-    #all_ranks_abs = all_ranks_abs.drop(columns = ['All_Countries'], axis = 1)
-    all_ranks_change = all_ranks_change.drop(columns = ['All_Countries'], axis = 1)
-
-    # remove tag from index labels
-    #all_ranks_abs.index = all_ranks_abs.index.str.split(keyword).str[1].str.lower()
-    all_ranks_change.index = all_ranks_change.index.str.split(keyword).str[1].str.lower()
-
-    return all_ranks_change, chgrank#, all_ranks_abs
-
-
-
-
-# ---------------------------------------------------------------------------- #
-''' Function to plot rankings
-Input:
-- df of ranks for each country in one category,
-- category keyword (e.g. 'Activities_'),
-- rank at which sign changes,
-- flag whether using abs value or not
-- figure file type to output (e.g. '.png')
-- resolution of figure in dpi (e.g. 300)
-Output:
-- plot of ranks for each country, sorted by median rank across countries
-'''
-def plot_ranks(ranked_df, keyword, changerank, abs_flag, ftype, dpi):
-
-    # Organize data for plotting
-    means = ranked_df.median(axis=1)
-    means.sort_values(ascending=True, inplace=True)
-    df = ranked_df
-    df['item'] = ranked_df.index
-    df = df.melt(id_vars='item')
-
-    # Plot
-    f,ax = plt.subplots(figsize=(11,means.shape[0]/2))
-    ax = sns.boxplot(x='value', y='item', data=df, order=means.index, color='white');
-    ax = sns.swarmplot(y=df['item'], x=df['value'], hue=df['variable'], order=means.index, size=6)
-
-    # Edit plot elements
-    ax.set_yticks(np.arange(0, means.shape[0], step=1))
-    ylabs = means.index.tolist()
-    new_ylabs = []
-    if keyword == 'Activities_':
-        for string in ylabs:
-            alphlower = {k.lower(): v for k, v in local_dicts.activities_rename_dict.items()}
-            new_ylabs.append(alphlower[string])
-    elif keyword == 'Music Listening_Functions_':
-        for string in ylabs:
-            alphlower = {k.lower(): v for k, v in local_dicts.mus_lis_funcs_rename_dict.items()}
-            new_ylabs.append(alphlower[string])
-    elif keyword == 'Making Music_Functions_':
-        for string in ylabs:
-            alphlower = {k.lower(): v for k, v in local_dicts.mus_lis_funcs_rename_dict.items()}
-            new_ylabs.append(alphlower[string])
-    elif keyword == 'Music Listening_Situations_':
-        for string in ylabs:
-            alphlower = {k.lower(): v for k, v in local_dicts.mus_lis_situations_rename_dict.items()}
-            new_ylabs.append(alphlower[string])
-    elif keyword == 'Music Listening_Formats_':
-        for string in ylabs:
-            alphlower = {k.lower(): v for k, v in local_dicts.mus_list_formats_rename_dict.items()}
-            new_ylabs.append(alphlower[string])
-    elif keyword == 'Making Music_Situations_':
-        for string in ylabs:
-            alphlower = {k.lower(): v for k, v in local_dicts.mus_make_forms.items()}
-            new_ylabs.append(alphlower[string])
-    else:
-        for string in ylabs:
-            new_string = string.replace(" i ", " I ")
-            new_ylabs.append(new_string)
-
-    ax.set_yticklabels(new_ylabs, ha='right');
-    ax.set(ylabel=keyword.replace("_", " "), xlabel='Rank')#,title='Ranked change in importance, median-sorted');
-
-    plt.xticks(np.arange(1, means.shape[0], step=5))
-    ax.grid(False)
-    sns.despine(left=True, bottom=True)
-    ax.invert_xaxis()
-    if 0 < changerank < 99:
-        ax.axvline(x=changerank-.1, linestyle="dotted", color='0.5')
-    if changerank == 0:
-        ax.axvline(x=1, linestyle="dotted", color='0.5')
-    leg = ax.get_legend()
-    leg.set_title("Country")
-    if means.shape[0]/2.5 >= 10:
-        plt.legend(fontsize='medium', title='Country')
-    else:
-        plt.legend(fontsize='x-small', title='Country')
-
-    f.tight_layout()
-
-    # Create filename for plot
-    if abs_flag:
-        s =  '_ranked_abs'
-    else:
-        s = '_ranked'
-    savestr = 'Figures/' + keyword + s + ftype
-    #ax.get_legend().remove()
-    f.savefig(savestr, dpi=dpi);
-
-    return f, ax
-
-
-
-# ---------------------------------------------------------------------------- #
-''' Function to print spearman rank correlations, across countries / ratings
-Input:
-- df of ranks for each country in one category
-Output:
-- table and visualization of correlations
-'''
-def print_rank_corr(df):
-    #print(all_ranks_change)
-    res = df.corr(method='spearman')
-
-    # Plot
-    cmap = sns.diverging_palette(220, 10, as_cmap=True)
-    ax = sns.heatmap(res, cmap=cmap,
-                square=True, linewidths=.5, cbar_kws={"shrink": .5}, annot=True, vmin=-1, vmax=1, center=0)
-
-    print('\nMean corr coef:', np.nanmean(res.values[np.triu_indices_from(res.values,1)]), '\n')
-
-    print(df.rcorr(method='spearman', upper='pval', padjust='fdr_bh', stars = False))
-
-
-# todo adjust all code in notebook to say local_funcs.function
-# adjust plotting calls to include figtyp and dpi
