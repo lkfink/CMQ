@@ -2,6 +2,8 @@
 
 Fink, L.,* Warrenburg, L.,* Howlin, C., Randall, W., Hansen, N.C+ & Wald-Fuhrmann, M.+ (submitted). Viral Tunes: Changes in Musical Behaviours and Interest in Coronamusic Predict Socio-Emotional Coping During COVID-19 Lockdown.
 
+*+ indicate equal contribution
+
 If using anything from this repository, please cite the paper.
 
 ___
