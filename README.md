@@ -1,8 +1,8 @@
 # Coronavirus Music Questionnaire (CMQ)
 
-*Fink, L., *Warrenburg, L. A., Howlin, C., Randall, W., +Hansen, N. C., & +Wald-Fuhrmann, M. (submitted). Viral Tunes: Changes in Musical Behaviours and Interest in Coronamusic Predict Socio-Emotional Coping During COVID-19 Lockdown. <a href="https://psyarxiv.com/7mg2v" target="_blank">`https://psyarxiv.com/7mg2v`</a>
+*Fink, L., *Warrenburg, L. A., Howlin, C., Randall, W., +Hansen, N. C., & +Wald-Fuhrmann, M. (2021). Viral tunes: Changes in musical behaviours and interest in coronamusic predict socio-emotional coping during COVID-19 lockdown. _Humanities & Social Sciences Communications, 8_(180). https://doi.org/10.1057/s41599-021-00858-y
 
-*+ indicate equal contribution
+_*+ indicates equal contribution_
 
 If using anything from this repository, please cite the paper.
 
