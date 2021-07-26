@@ -1,11 +1,14 @@
 Raw_Data/
 Figures/
+.ipynb_checkpoints
+_pycache_
+.DS_Store
+
+# contain sensitive data
 instructions.csv
 free_responses.xls
 free_responses.csv
 OxCGRT_latest_23062020.csv
-.ipynb_checkpoints
-_pycache_
-.DS_Store
 factors_all_data.csv
+Cleaning.ipynb
 Pre-Processing_LW_LF_Version.ipynb
